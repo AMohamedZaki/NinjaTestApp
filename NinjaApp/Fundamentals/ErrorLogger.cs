@@ -14,7 +14,7 @@ namespace TestNinja.Fundamentals
             // null
             // ""
             // " "
-            if (String.IsNullOrWhiteSpace(error))
+            if (string.IsNullOrWhiteSpace(error))
                 throw new ArgumentNullException();
 
             LastError = error;
