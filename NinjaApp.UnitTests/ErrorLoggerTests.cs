@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using TestNinja.Fundamentals;
 
 namespace NinjaApp.UnitTests
@@ -37,6 +38,23 @@ namespace NinjaApp.UnitTests
             // TypeOf for the Type of class
             // instance of for type of class or derivative of class
             // Assert.That(() => _log.Log(error), Throws.Exception.TypeOf<CustomException>);
+        }
+
+
+        [Test]
+        public void Log_ValidError_RaiseTheEvent()
+        {
+            // Assign
+            var id = Guid.Empty;
+
+            // Subscribe to the event 
+            _log.ErrorLogged += (sender, args) => { id = args; };
+
+            // Call void Method
+            _log.Log("e");
+
+            // Assert
+            Assert.That(id, Is.Not.EqualTo(Guid.Empty));
         }
     }
 }
