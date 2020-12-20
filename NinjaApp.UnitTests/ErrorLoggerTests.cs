@@ -10,7 +10,7 @@ namespace NinjaApp.UnitTests
         private ErrorLogger _log;
         
         [SetUp]
-        public void Seetup()
+        public void Setup()
         {
             _log = new ErrorLogger();
         }
